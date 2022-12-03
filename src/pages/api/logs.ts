@@ -6,10 +6,9 @@ const logs = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     try {
       const logs = await prisma.logs.findMany();
-      res.status(200).json(logs);
+      return res.status(200).json(logs);
     } catch (error) {
-      console.log(error);
-      res.status(500).json(error)
+      return res.status(500).json(error)
     }
   }
   if (req.method === "POST") {
@@ -24,10 +23,9 @@ const logs = async (req: NextApiRequest, res: NextApiResponse) => {
           responseTime: res.responseTime,
         },
       });
-      res.status(200).json("Log created!");
+      return res.status(200).json({message: "Log created!"});
     } catch (error) {
-      console.log(error);
-      res.status(500).json(error)
+      return res.status(500).end()
     }
   }
 };

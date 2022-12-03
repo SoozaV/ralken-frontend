@@ -20,10 +20,13 @@ export const getUser = async (id: string) => {
     responseTime: endTime,
   };
 
-  api.post("/api/logs", log, {
+  axios.post("/api/logs", log, {
     baseURL: process.env.HOST_URL,
     headers: {
       "Content-Type": "application/json",
+    },
+    validateStatus: function (status) {
+      return status < 600;
     },
   });
   return user.data;
@@ -41,10 +44,13 @@ export const getUserPosts = async (id: string) => {
     responseTime: endTime,
   };
 
-  api.post("/api/logs", log, {
+  axios.post("/api/logs", log, {
     baseURL: process.env.HOST_URL,
     headers: {
       "Content-Type": "application/json",
+    },
+    validateStatus: function (status) {
+      return status < 600;
     },
   });
 
@@ -63,10 +69,13 @@ export const getUserPhotos = async (id: string) => {
     responseTime: endTime,
   };
 
-  api.post("/api/logs", log, {
+  axios.post("/api/logs", log, {
     baseURL: process.env.HOST_URL,
     headers: {
       "Content-Type": "application/json",
+    },
+    validateStatus: function (status) {
+      return status < 600;
     },
   });
 
@@ -85,10 +94,13 @@ export const getUsers = async () => {
     responseTime: endTime,
   };
 
-  api.post("/api/logs", log, {
+  axios.post("/api/logs", log, {
     baseURL: process.env.HOST_URL,
     headers: {
       "Content-Type": "application/json",
+    },
+    validateStatus: function (status) {
+      return status < 600;
     },
   });
 
