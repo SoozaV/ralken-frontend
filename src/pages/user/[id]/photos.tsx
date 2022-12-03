@@ -3,8 +3,8 @@ import Link from "next/link";
 import PhotoCard from "../../../../components/PhotoCard";
 import UserCard from "../../../../components/UserCard";
 import UserLayout from "../../../../components/UserLayout";
-import Photo from "../../../interfaces/Photo";
-import User from "../../../interfaces/User";
+import type Photo from "../../../interfaces/Photo";
+import type User from "../../../interfaces/User";
 import { getUser, getUserPhotos } from "../../api/users";
 
 function User({ user, userPhotos }: { user: User; userPhotos: Photo[] }) {
@@ -25,7 +25,7 @@ function User({ user, userPhotos }: { user: User; userPhotos: Photo[] }) {
         <div className="basis-full sm:basis-[60%] md:basis-1/2 lg:basis-2/3 xl:basis-3/4 flex justify-center sm:flex-none">
           <div className="grid grid-cols-1 px-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7 md:gap-5">
             {userPhotos.map((photo) => (
-              <PhotoCard photo={photo} />
+              <PhotoCard photo={photo} key={photo.id} />
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import UserCard from "../../components/UserCard";
 import UserLayout from "../../components/UsersLayout";
-import Users from "../interfaces/Users";
+import type Users from "../interfaces/Users";
 import { getUsers } from "./api/users";
 
 const Home = ({ users }: Users) => {
@@ -20,7 +20,7 @@ const Home = ({ users }: Users) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const users = await getUsers();
   return {
     props: {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import User from "../src/interfaces/User";
+import type User from "../src/interfaces/User";
 
 export default function UserCard({
   user,

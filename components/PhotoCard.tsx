@@ -1,4 +1,4 @@
-import Photo from "../src/interfaces/Photo";
+import type Photo from "../src/interfaces/Photo";
 
 export default function PhotoCard({ photo }: { photo: Photo }) {
   return (

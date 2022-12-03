@@ -2,8 +2,8 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import UserCard from "../../../../components/UserCard";
 import UserLayout from "../../../../components/UserLayout";
-import User from "../../../interfaces/User";
-import Post from "../../../interfaces/Post";
+import type User from "../../../interfaces/User";
+import type Post from "../../../interfaces/Post";
 import { getUser, getUserPosts } from "../../api/users";
 import PostCard from "../../../../components/PostCard";
 
@@ -25,7 +25,7 @@ function User({ user, userPosts }: { user: User; userPosts: Post[] }) {
         <div className="flex basis-full justify-center sm:flex-none sm:basis-[60%] md:basis-3/4">
           <div className="grid grid-cols-1 gap-7 px-5 md:grid-cols-2 md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             {userPosts.map((post) => (
-              <PostCard post={post} />
+              <PostCard post={post} key={post.id} />
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ export default function LogLayout({
   children,
   title = "Notes App",
 }: {
-  children: any;
+  children: React.ReactNode;
   title?: string;
 }) {
   return (

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import LogLayout from "../../../components/LogLayout";
-import Logs from "../../interfaces/Logs";
+import type Logs from "../../interfaces/Logs";
 import axios from "axios";
 
 const Logs = ({ logs }: Logs) => {
@@ -20,7 +20,7 @@ const Logs = ({ logs }: Logs) => {
           </thead>
           <tbody>
             {logs.map((log) => (
-              <tr>
+              <tr key={log.id}>
                 <td className="text-center border border-slate-400">{log.id}</td>
                 <td className="text-center border border-slate-400">{log.method}</td>
                 <td className="text-center border border-slate-400">{log.route}</td>
@@ -38,7 +38,7 @@ const Logs = ({ logs }: Logs) => {
 
 export default Logs;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const logs = await axios.get("/api/logs", {
     baseURL: process.env.HOST_URL,
     headers: {

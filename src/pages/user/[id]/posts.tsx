@@ -3,8 +3,8 @@ import Link from "next/link";
 import PostCard from "../../../../components/PostCard";
 import UserCard from "../../../../components/UserCard";
 import UserLayout from "../../../../components/UserLayout";
-import Post from "../../../interfaces/Post";
-import User from "../../../interfaces/User";
+import type Post from "../../../interfaces/Post";
+import type User from "../../../interfaces/User";
 import { getUser, getUserPosts } from "../../api/users";
 
 function User({ user, userPosts }: { user: User; userPosts: Post[] }) {

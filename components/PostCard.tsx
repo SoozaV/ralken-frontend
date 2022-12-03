@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Post from "../src/interfaces/Post";
+import type Post from "../src/interfaces/Post";
 
 export default function PostCard({ post }: { post: Post }) {
   return (
